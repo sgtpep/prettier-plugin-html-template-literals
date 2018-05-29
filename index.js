@@ -1,3 +1,5 @@
-function main() {}
+function main() {
+  module.exports = { languages: [] };
+}
 
 main();
