@@ -1,5 +1,1 @@
-function main() {
-  module.exports = { languages: [] };
-}
-
-main();
+module.exports = { languages: [] };
