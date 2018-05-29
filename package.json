@@ -1,13 +1,10 @@
 {
   "author": "Danil Semelenov <mail@danil.mobi>",
+  "bin": { "prettier": "./cli.js" },
   "description": "Patches Prettier to format HTML within tagged template literals which is useful for hyperHTML, lit-html and maybe others.",
   "license": "ISC",
   "main": "index.js",
   "name": "prettier-plugin-html-template-literals",
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
-  "scripts": {
-    "install": "node -e \"const [fs, path] = [require('fs'), '../.bin/prettier']; fs.existsSync(path) && fs.unlinkSync(path); fs.symlinkSync('../$npm_package_name/cli.js', require('path').resolve(path))\"",
-    "uninstall": "node -e \"const [fs, path] = [require('fs'), '../.bin/prettier']; fs.existsSync(path) && fs.symlinkSync('../prettier/bin-prettier.js', require('path').resolve(path))\""
-  },
   "version": "1.0.0"
 }
