@@ -71,8 +71,8 @@ function embedHTMLTemplateLiteral(path, print, textToDoc) {
       const trimmedDoc = trimDoc(processedDoc);
       const line = willBreak(trimmedDoc) ? hardline : '';
       return concat(['`', indent(concat([line, trimmedDoc])), line, '`']);
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   }
 }
