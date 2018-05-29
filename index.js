@@ -1,4 +1,4 @@
 module.exports = {
-  ...require('./prettier')(),
+  ...require('./require')(),
   languages: [],
 };

@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('./prettier')('bin-prettier');
+require('./require')('bin-prettier');
