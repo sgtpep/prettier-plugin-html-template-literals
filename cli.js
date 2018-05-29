@@ -85,7 +85,13 @@ function main() {
     )
       ? content.replace(
           /\bswitch\s*\(node\.type\)\s*{\n\s*case\s['"]TemplateLiteral['"]:/,
-          `$&\n${embedHTMLTemplateLiteral}\nembedHTMLTemplateLiteral(...arguments);\n`
+          `
+            $&
+            let result = (${embedHTMLTemplateLiteral})(...arguments);
+            if (result !== undefined) {
+              return result;
+            }
+          `
         )
       : content;
     return _compile.call(this, patchedContent, path);
