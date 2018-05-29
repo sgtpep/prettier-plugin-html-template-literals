@@ -1,5 +1,9 @@
 module.exports = function embed(path, print, textToDoc) {
-  if (path.getParentNode().tag.name === 'html') {
+  const parent = path.getParentNode();
+  if (
+    parent.type === 'TaggedTemplateExpression' &&
+    parent.tag.name === 'html'
+  ) {
     try {
       const text = node.quasis
         .map(quasis => quasis.value.raw)
