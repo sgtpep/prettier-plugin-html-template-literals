@@ -1,0 +1,9 @@
+{
+  "author": "Danil Semelenov <mail@danil.mobi>",
+  "description": "Patches Prettier to format HTML within tagged template literals which is useful for hyperHTML, lit-html and maybe others.",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "prettier-plugin-html-template-literals",
+  "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
+  "version": "1.0.0"
+}
