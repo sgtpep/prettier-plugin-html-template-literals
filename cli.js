@@ -80,7 +80,9 @@ function embedHTMLTemplateLiteral(path, print, textToDoc) {
 function main() {
   const { _compile } = Module.prototype;
   Module.prototype._compile = function(content, path) {
-    const patchedContent = path.endsWith('/prettier/bin-prettier.js')
+    const patchedContent = path.endsWith(
+      '/node_modules/prettier/bin-prettier.js'
+    )
       ? content.replace(
           /\bswitch\s*\(node\.type\)\s*{\n\s*case\s['"]TemplateLiteral['"]:/,
           `$&\n${embedHTMLTemplateLiteral}\nembedHTMLTemplateLiteral(...arguments);\n`
