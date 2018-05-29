@@ -1,4 +1,1 @@
-module.exports = {
-  ...require('./require')(),
-  languages: [],
-};
+module.exports = { languages: [] };

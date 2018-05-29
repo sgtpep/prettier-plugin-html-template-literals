@@ -1,13 +1,11 @@
 const Module = require('module');
 const embed = require('./embed');
 
-module.exports = function prettier(name = 'index') {
-  const requirePath = `prettier/${name}`;
-  const modulePath = require.resolve(requirePath);
+module.exports = function(request) {
   const { _compile } = Module.prototype;
   Module.prototype._compile = function(content, path) {
     const patchedContent =
-      path === modulePath
+      path === require.resolve(request)
         ? content.replace(
             /\bswitch\s*\(node\.type\)\s*{\n\s*case\s['"]TemplateLiteral['"]:/,
             `
@@ -21,5 +19,5 @@ module.exports = function prettier(name = 'index') {
         : content;
     return _compile.call(this, patchedContent, path);
   };
-  return require(requirePath);
+  return require(request);
 };
