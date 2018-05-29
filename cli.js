@@ -78,7 +78,7 @@ function embedHTMLTemplateLiteral(path, print, textToDoc) {
 }
 
 function main() {
-  const _compile = Module.prototype._compile;
+  const { _compile } = Module.prototype;
   Module.prototype._compile = function(content, path) {
     const patchedContent = path.endsWith('/prettier/bin-prettier.js')
       ? content.replace(
