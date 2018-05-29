@@ -6,7 +6,8 @@
   "name": "prettier-plugin-html-template-literals",
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
   "scripts": {
-    "postinstall": "node -e \"require('fs').symlink('foo', './todo')\""
+    "install": "node -e \"const [fs, path] = [require('fs'), '../.bin/prettier']; fs.existsSync(path) && fs.unlinkSync(path); fs.symlinkSync('../$npm_package_name/cli.js', require('path').resolve(path))\"",
+    "uninstall": "node -e \"const [fs, path] = [require('fs'), '../.bin/prettier']; fs.existsSync(path) && fs.symlinkSync('../prettier/bin-prettier.js', require('path').resolve(path))\""
   },
   "version": "1.0.0"
 }
