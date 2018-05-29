@@ -5,5 +5,8 @@
   "main": "index.js",
   "name": "prettier-plugin-html-template-literals",
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
+  "scripts": {
+    "postinstall": "node -e \"require('fs').symlink('foo', './todo')\""
+  },
   "version": "1.0.0"
 }
