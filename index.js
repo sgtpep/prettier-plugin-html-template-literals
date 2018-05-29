@@ -1,1 +1,4 @@
-module.exports = { languages: [] };
+module.exports = {
+  ...require('./prettier')(),
+  languages: [],
+};
