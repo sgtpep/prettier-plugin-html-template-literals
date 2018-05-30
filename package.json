@@ -1,6 +1,8 @@
 {
   "author": "Danil Semelenov <mail@danil.mobi>",
-  "bin": { "prettier": "./cli.js" },
+  "bin": {
+    "prettier": "./cli.js"
+  },
   "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html and maybe others.",
   "license": "ISC",
   "name": "prettier-plugin-html-template-literals",
