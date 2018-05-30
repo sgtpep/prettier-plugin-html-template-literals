@@ -68,18 +68,29 @@ module.exports = function embed(path, print, textToDoc) {
           trimmedDoc = trimmedDoc.parts[0];
         }
         return trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1]
-          .contents;
+          .contents.parts[0].parts[0];
+      }
+      function indentDoc(doc) {
+        const breakableDoc = doc.expandedStates.find(doc => doc.break);
+        if (breakableDoc) {
+          breakableDoc.contents = concat([
+            indent(concat([softline, breakableDoc.contents])),
+            softline,
+          ]);
+        }
+        return doc;
       }
       const expressions = node.expressions
         ? path.map(print, 'expressions')
         : [];
-      const doc = trimDoc(
-        mapDoc(textToDoc(`<>${text}</>`, { parser: 'babylon' }), doc =>
-          processDoc(doc)
+      const doc = indentDoc(
+        trimDoc(
+          mapDoc(textToDoc(`<>${text}</>`, { parser: 'babylon' }), doc =>
+            processDoc(doc)
+          )
         )
       );
-      const line = willBreak(doc) ? hardline : '';
-      return concat(['`', indent(concat([line, doc])), line, '`']);
+      return concat(['`', doc, '`']);
     }
   }
 };
