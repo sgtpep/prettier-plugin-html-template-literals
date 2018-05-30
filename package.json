@@ -6,5 +6,8 @@
   "main": "index.js",
   "name": "prettier-plugin-html-template-literals",
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
+  "scripts": {
+    "test": "node ./test.js"
+  },
   "version": "1.0.0"
 }
