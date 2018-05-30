@@ -1,5 +1,32 @@
 #!/usr/bin/env node
 const assert = require('assert').strict;
+const fs = require('fs');
+const package = require('./package');
+const { spawnSync } = require('child_process');
+
+function main() {
+  setupEnvironment();
+}
+
+function setupEnvironment() {
+  process.chdir(__dirname);
+  const directoryPath = './test';
+  spawnSync('mkdir', ['-p', directoryPath], { stdio: 'inherit' });
+  process.chdir(directoryPath);
+  fs.writeFileSync(
+    './package.json',
+    JSON.stringify({
+      dependencies: {
+        prettier: '*',
+        'prettier-plugin-html-template-literals':
+          'sgtpep/prettier-plugin-html-template-literals',
+      },
+    })
+  );
+  spawnSync('yarn', ['install'], { stdio: 'inherit' });
+}
+
+main();
 
 //const template = html`<span class="bar">qux {1+1} {1</span>`;
 //const template = html`<foo></foo><bar></bar>`;
