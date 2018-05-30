@@ -15,19 +15,22 @@ function main() {
 
 function setupCLI() {
   spawnSync('mkdir', ['-p', environmentPath], { stdio: 'inherit' });
-  fs.writeFileSync(
-    path.join(environmentPath, 'package.json'),
-    JSON.stringify({
-      dependencies: {
-        prettier: '*',
-        'prettier-plugin-html-template-literals':
-          'sgtpep/prettier-plugin-html-template-literals',
-      },
-    })
-  );
   spawnSync('yarn', ['--cwd', environmentPath, 'install'], {
     stdio: 'inherit',
   });
+  spawnSync(
+    'yarn',
+    [
+      '--cwd',
+      environmentPath,
+      'add',
+      'prettier',
+      'sgtpep/prettier-plugin-html-template-literals',
+    ],
+    {
+      stdio: 'inherit',
+    }
+  );
   fs.writeFileSync(
     path.join(environmentPath, '.prettierrc'),
     JSON.stringify({})
