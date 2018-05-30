@@ -1,1 +1,1 @@
-//html`<div class="foo" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`
+//html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`

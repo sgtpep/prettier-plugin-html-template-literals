@@ -48,7 +48,7 @@ function testCLI() {
     {
       encoding: 'utf8',
       input:
-        'html`<div id="foo" class="foo bar baz" data-foo="foo" data-bar="bar" data-baz="baz"><span>Foobar</span></div>`',
+        'html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`',
     }
   );
   if (stderr) {
@@ -60,12 +60,13 @@ function testCLI() {
 html\`
   <div
     id="foo"
-    class="foo bar baz"
+    class="bar"
     data-foo="foo"
     data-bar="bar"
     data-baz="baz"
+    data-qux="qux"
   >
-    <span>Foobar</span>
+    foo
   </div>
 \`;
 `.trimStart()
