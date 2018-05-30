@@ -1,6 +1,6 @@
 require('../assert')(
-  'html`<span class="bar">qux {1+1} {1</span>`',
+  'html`<div class="foo">bar {1+1} {1</div>`',
   `
-html\`<span class="bar">qux {1+1} {1</span>\`;
+html\`<div class="foo">bar {1+1} {1</div>\`;
 `
 );
