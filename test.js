@@ -2,19 +2,20 @@
 const assert = require('assert').strict;
 const fs = require('fs');
 const package = require('./package');
+const path = require('path');
 const { spawnSync } = require('child_process');
 
+const cliPath = path.join(__dirname, 'test');
+
 function main() {
-  setupEnvironment();
+  setupCLI();
+  testCLI();
 }
 
-function setupEnvironment() {
-  process.chdir(__dirname);
-  const directoryPath = './test';
-  spawnSync('mkdir', ['-p', directoryPath], { stdio: 'inherit' });
-  process.chdir(directoryPath);
+function setupCLI() {
+  spawnSync('mkdir', ['-p', cliPath], { stdio: 'inherit' });
   fs.writeFileSync(
-    './package.json',
+    path.join(cliPath, 'package.json'),
     JSON.stringify({
       dependencies: {
         prettier: '*',
@@ -23,7 +24,37 @@ function setupEnvironment() {
       },
     })
   );
-  spawnSync('yarn', ['install'], { stdio: 'inherit' });
+  spawnSync('yarn', ['--cwd', cliPath, 'install'], { stdio: 'inherit' });
+}
+
+function testCLI() {
+  const { stdout, stderr } = spawnSync(
+    path.join(cliPath, 'node_modules/.bin/prettier'),
+    ['--stdin-filepath', 'test.js'],
+    {
+      encoding: 'utf8',
+      input:
+        'html`<div id="foo" class="foo bar baz" data-foo="foo" data-bar="bar" data-baz="baz"><span>Foobar</span></div>`',
+    }
+  );
+  if (stderr) {
+    console.error(stderr);
+  }
+  assert.equal(
+    stdout,
+    `html\`
+  <div
+    id="foo"
+    class="foo bar baz"
+    data-foo="foo"
+    data-bar="bar"
+    data-baz="baz"
+  >
+    <span>Foobar</span>
+  </div>
+\`;
+`
+  );
 }
 
 main();
