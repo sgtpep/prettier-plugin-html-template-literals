@@ -5,6 +5,9 @@
   "license": "ISC",
   "main": "index.js",
   "name": "prettier-plugin-html-template-literals",
+  "peerDependencies": {
+    "prettier": ">= 1.13.0 < 2"
+  },
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
   "scripts": {
     "test": "node ./test.js"
