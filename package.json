@@ -9,7 +9,7 @@
   "peerDependencies": {
     "prettier": ">= 1.13.0 < 2"
   },
-  "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals",
+  "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals.git",
   "scripts": {
     "test": "node ./test.js"
   },
