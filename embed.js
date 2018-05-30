@@ -70,7 +70,7 @@ module.exports = function embed(path, print, textToDoc) {
           .contents;
       }
       const trimmedDoc = trimDoc(processedDoc);
-      const line = willBreak(trimmedDoc) ? hardline : '';
+      const line = willBreak(trimmedDoc) ? hardline : softline;
       return concat(['`', indent(concat([line, trimmedDoc])), line, '`']);
     } catch (error) {
       console.error(error);
