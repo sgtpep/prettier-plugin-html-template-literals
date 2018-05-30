@@ -15,9 +15,7 @@ function main() {
 
 function setupCLI() {
   spawnSync('mkdir', ['-p', environmentPath], { stdio: 'inherit' });
-  spawnSync('yarn', ['--cwd', environmentPath, 'install'], {
-    stdio: 'inherit',
-  });
+  fs.writeFileSync(path.join(environmentPath, 'package.json'), '{}');
   spawnSync(
     'yarn',
     [
