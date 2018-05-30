@@ -7,7 +7,7 @@ module.exports = function(request) {
     const patchedContent =
       path === require.resolve(request)
         ? content.replace(
-            /\bswitch\s*\(node\.type\)\s*{\n\s*case\s['"]TemplateLiteral['"]:/,
+            /\bswitch\s*\(node\.type\)\s*{\n\s*case\s*['"]TemplateLiteral['"]:/,
             `
             $&
             let result = (${embed})(...arguments);
