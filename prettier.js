@@ -1,1 +1,1 @@
-module.exports = require('./require')('prettier');
+module.exports = require('./patch')('prettier');
