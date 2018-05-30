@@ -71,27 +71,23 @@ module.exports = function(path, print, textToDoc) {
           .contents;
       }
       function indentDoc(doc) {
-        if (
-          doc.parts &&
-          doc.parts.length === 1 &&
-          doc.parts[0].parts &&
-          doc.parts[0].parts.length === 1 &&
-          doc.parts[0].parts[0].expandedStates
-        ) {
-          const breakableDoc = doc.parts[0].parts[0].expandedStates.find(
+        let breakableDoc;
+        try {
+          breakableDoc = doc.parts[0].parts[0].expandedStates.find(
             doc => doc.break
           );
-          if (breakableDoc) {
-            breakableDoc.contents = concat([
-              indent(concat([softline, breakableDoc.contents])),
-              softline,
-            ]);
-            return doc;
-          }
+        } catch (error) {}
+        if (breakableDoc) {
+          breakableDoc.contents = concat([
+            indent(concat([softline, breakableDoc.contents])),
+            softline,
+          ]);
+          return doc;
+        } else {
+          return willBreak(doc)
+            ? concat([indent(concat([softline, doc])), softline])
+            : doc;
         }
-        return willBreak(doc)
-          ? concat([indent(concat([softline, doc])), softline])
-          : doc;
       }
       const expressions = node.expressions
         ? path.map(print, 'expressions')
