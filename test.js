@@ -35,7 +35,7 @@ function setupCLI() {
 }
 
 function testAPI() {
-  require(path.join(__dirname, 'tests'));
+  require(path.join(environmentPath, 'node_modules', package.name, 'tests'));
 }
 
 function testCLI() {
