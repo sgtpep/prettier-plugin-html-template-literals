@@ -18,13 +18,7 @@ function setupCLI() {
   fs.writeFileSync(path.join(environmentPath, 'package.json'), '{}');
   spawnSync(
     'yarn',
-    [
-      '--cwd',
-      environmentPath,
-      'add',
-      'prettier',
-      'sgtpep/prettier-plugin-html-template-literals',
-    ],
+    ['--cwd', environmentPath, 'add', 'prettier', package.repository],
     {
       stdio: 'inherit',
     }
