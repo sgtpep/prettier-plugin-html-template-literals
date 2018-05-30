@@ -10,6 +10,7 @@ const cliPath = path.join(__dirname, 'test');
 function main() {
   setupCLI();
   testCLI();
+  testAPI();
 }
 
 function setupCLI() {
@@ -25,6 +26,10 @@ function setupCLI() {
     })
   );
   spawnSync('yarn', ['--cwd', cliPath, 'install'], { stdio: 'inherit' });
+}
+
+function testAPI() {
+  require(path.join(__dirname, 'tests'));
 }
 
 function testCLI() {
