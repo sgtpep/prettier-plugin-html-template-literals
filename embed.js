@@ -66,7 +66,7 @@ module.exports = function embed(path, print, textToDoc) {
           .contents;
       }
       const trimmedDoc = trimDoc(processedDoc);
-      const line = willBreak(trimmedDoc) ? hardline : softline;
+      const line = willBreak(trimmedDoc) ? hardline : '';
       return concat(['`', indent(concat([line, trimmedDoc])), line, '`']);
     }
   }
