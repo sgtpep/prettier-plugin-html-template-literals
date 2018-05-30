@@ -1,5 +1,8 @@
-require('../assert')('\
+require('../assert')(
+  '\
 html`<div class="foo">bar</div>`;\n\
-', '\
-html``;\n\
-');
+',
+  '\
+html`<div class="foo">bar</div>`;\n\
+'
+);

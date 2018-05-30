@@ -3,6 +3,17 @@ require('../assert')(
 html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`;\n\
 ',
   '\
-html``;\n\
+html`\n\
+  <div\n\
+    id="foo"\n\
+    class="bar"\n\
+    data-foo="foo"\n\
+    data-bar="bar"\n\
+    data-baz="baz"\n\
+    data-qux="qux"\n\
+  >\n\
+    foo\n\
+  </div>\n\
+`;\n\
 '
 );
