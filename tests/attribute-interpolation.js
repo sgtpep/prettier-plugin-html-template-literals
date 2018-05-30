@@ -1,1 +1,5 @@
-//html`<div class=${'foo'}>bar</div>`
+require('../assert')('\
+html`<div class=${"foo"}>bar</div>`;\n\
+', '\
+html``;\n\
+');
