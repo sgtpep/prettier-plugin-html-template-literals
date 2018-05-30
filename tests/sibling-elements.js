@@ -1,11 +1,11 @@
 require('../assert')(
   '\
-html`<foo/><bar/>`;\n\
+html`<div/><span/>`;\n\
 ',
   '\
 html`\n\
-  <foo />\n\
-  <bar />\n\
+  <div />\n\
+  <span />\n\
 `;\n\
 '
 );
