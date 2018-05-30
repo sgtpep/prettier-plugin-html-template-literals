@@ -1,38 +1,20 @@
 #!/usr/bin/env node
 const assert = require('assert').strict;
-const fs = require('fs');
-const package = require('./package');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const environmentPath = path.join(__dirname, 'test');
-
 function main() {
-  setupCLI();
   testCLI();
   testAPI();
 }
 
-function setupCLI() {
-  spawnSync('mkdir', ['-p', environmentPath], { stdio: 'inherit' });
-  fs.writeFileSync(path.join(environmentPath, 'package.json'), '{}');
-  spawnSync(
-    'yarn',
-    ['--cwd', environmentPath, 'add', 'prettier', package.repository],
-    {
-      stdio: 'inherit',
-    }
-  );
-  fs.writeFileSync(path.join(environmentPath, '.prettierrc'), '{}');
-}
-
 function testAPI() {
-  require(path.join(environmentPath, 'node_modules', package.name, 'tests'));
+  require('./tests');
 }
 
 function testCLI() {
   const { stdout, stderr } = spawnSync(
-    path.join(environmentPath, 'node_modules/.bin/prettier'),
+    path.join(__dirname, 'cli.js'),
     ['--stdin-filepath', 'test.js'],
     {
       encoding: 'utf8',
@@ -45,20 +27,20 @@ function testCLI() {
   }
   assert.equal(
     stdout,
-    `
-html\`
-  <div
-    id="foo"
-    class="bar"
-    data-foo="foo"
-    data-bar="bar"
-    data-baz="baz"
-    data-qux="qux"
-  >
-    foo
-  </div>
-\`;
-`.trimStart()
+    '\
+html`\n\
+  <div\n\
+    id="foo"\n\
+    class="bar"\n\
+    data-foo="foo"\n\
+    data-bar="bar"\n\
+    data-baz="baz"\n\
+    data-qux="qux"\n\
+  >\n\
+    foo\n\
+  </div>\n\
+`;\n\
+'
   );
 }
 
