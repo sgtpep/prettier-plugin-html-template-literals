@@ -5,7 +5,7 @@ const package = require('./package');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-const cliPath = path.join(__dirname, 'test');
+const environmentPath = path.join(__dirname, 'test');
 
 function main() {
   setupCLI();
@@ -14,9 +14,9 @@ function main() {
 }
 
 function setupCLI() {
-  spawnSync('mkdir', ['-p', cliPath], { stdio: 'inherit' });
+  spawnSync('mkdir', ['-p', environmentPath], { stdio: 'inherit' });
   fs.writeFileSync(
-    path.join(cliPath, 'package.json'),
+    path.join(environmentPath, 'package.json'),
     JSON.stringify({
       dependencies: {
         prettier: '*',
@@ -25,8 +25,13 @@ function setupCLI() {
       },
     })
   );
-  spawnSync('yarn', ['--cwd', cliPath, 'install'], { stdio: 'inherit' });
-  fs.writeFileSync(path.join(cliPath, '.prettierrc'), JSON.stringify({}));
+  spawnSync('yarn', ['--cwd', environmentPath, 'install'], {
+    stdio: 'inherit',
+  });
+  fs.writeFileSync(
+    path.join(environmentPath, '.prettierrc'),
+    JSON.stringify({})
+  );
 }
 
 function testAPI() {
@@ -35,7 +40,7 @@ function testAPI() {
 
 function testCLI() {
   const { stdout, stderr } = spawnSync(
-    path.join(cliPath, 'node_modules/.bin/prettier'),
+    path.join(environmentPath, 'node_modules/.bin/prettier'),
     ['--stdin-filepath', 'test.js'],
     {
       encoding: 'utf8',
