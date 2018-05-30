@@ -1,5 +1,5 @@
 module.exports = function(path, print, textToDoc) {
-  if (path.getParentNode().type === 'TaggedTemplateExpression') {
+  if (parent.type === 'TaggedTemplateExpression') {
     const text = node.quasis
       .map(quasis => quasis.value.raw)
       .reduce(
