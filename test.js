@@ -31,10 +31,7 @@ function setupCLI() {
       stdio: 'inherit',
     }
   );
-  fs.writeFileSync(
-    path.join(environmentPath, '.prettierrc'),
-    JSON.stringify({})
-  );
+  fs.writeFileSync(path.join(environmentPath, '.prettierrc'), '{}');
 }
 
 function testAPI() {
