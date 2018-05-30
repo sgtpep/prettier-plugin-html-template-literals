@@ -26,6 +26,7 @@ function setupCLI() {
     })
   );
   spawnSync('yarn', ['--cwd', cliPath, 'install'], { stdio: 'inherit' });
+  fs.writeFileSync(path.join(cliPath, '.prettierrc'), JSON.stringify({}));
 }
 
 function testAPI() {
