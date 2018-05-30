@@ -42,7 +42,8 @@ function testCLI() {
   }
   assert.equal(
     stdout,
-    `html\`
+    `
+html\`
   <div
     id="foo"
     class="foo bar baz"
@@ -53,7 +54,7 @@ function testCLI() {
     <span>Foobar</span>
   </div>
 \`;
-`
+`.trimStart()
   );
 }
 
