@@ -4,6 +4,9 @@
     "prettier": "./cli.js"
   },
   "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html and maybe others.",
+  "devDependencies": {
+    "prettier": "*"
+  },
   "license": "ISC",
   "name": "prettier-plugin-html-template-literals",
   "peerDependencies": {
