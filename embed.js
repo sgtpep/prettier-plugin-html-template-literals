@@ -1,4 +1,4 @@
-module.exports = function(path, print, textToDoc) {
+module.exports = function embed(path, print, textToDoc) {
   /* global concat:false, indent:false, mapDoc:false, node:false, parent:false, softline:false, willBreak:false */
   if (parent.type === 'TaggedTemplateExpression') {
     const text = node.quasis

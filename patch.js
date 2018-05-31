@@ -1,7 +1,7 @@
 const Module = require('module');
 const embed = require('./embed');
 
-module.exports = function(request) {
+module.exports = function patch(request) {
   const { _compile } = Module.prototype;
   Module.prototype._compile = function(content, path) {
     const patchedContent =
