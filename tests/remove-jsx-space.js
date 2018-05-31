@@ -1,33 +1,30 @@
 require('../assert')('\
-html`<div>foo</div> `;\n\
+html`<div>foo</div> `\n\
 ', '\
 html`<div>foo</div>`;\n\
 ');
 
 require('../assert')('\
-html` <div>foo</div>`;\n\
+html` <div>foo</div>`\n\
 ', '\
 html`<div>foo</div>`;\n\
 ');
 
-require('../assert')(
-  '\
-html` <div>foo</div> `;\n\
-',
-  '\
+require('../assert')('\
+html` <div>foo</div> `\n\
+', '\
 html`<div>foo</div>`;\n\
-'
-);
+');
 
 require('../assert')('\
-html`<div> </div>`;\n\
+html`<div> </div>`\n\
 ', '\
 html`<div> </div>`;\n\
 ');
 
 require('../assert')(
   '\
-html`<div data-foo="foo" data-bar="bar"> </div>`;\n\
+html`<div data-foo="foo" data-bar="bar"> </div>`\n\
 ',
   '\
 html`\n\
@@ -39,7 +36,7 @@ html`\n\
 
 require('../assert')(
   '\
-html`<div><span data-foo="foo" data-bar="bar"/ > <span data-foo="foo" data-bar="bar"/ ></div>`;\n\
+html`<div><span data-foo="foo" data-bar="bar"/ > <span data-foo="foo" data-bar="bar"/ ></div>`\n\
 ',
   '\
 html`\n\

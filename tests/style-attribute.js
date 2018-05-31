@@ -1,6 +1,6 @@
 require('../assert')(
   "\
-html`<div style=${{ foo: 'bar' }}>foo</div >`;\n\
+html`<div style=${{ foo: 'bar' }}>foo</div >`\n\
 ",
   "\
 html`<div style=${{ foo: 'bar' }}>foo</div>`;\n\
@@ -9,7 +9,7 @@ html`<div style=${{ foo: 'bar' }}>foo</div>`;\n\
 
 require('../assert')(
   "\
-html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux' }}>foo</div >`;\n\
+html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux' }}>foo</div >`\n\
 ",
   "\
 html`\n\
@@ -22,7 +22,7 @@ html`\n\
 
 require('../assert')(
   "\
-html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux', foo: 'foo', bar: 'bar' }}>foo</div >`;\n\
+html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux', foo: 'foo', bar: 'bar' }}>foo</div >`\n\
 ",
   "\
 html`\n\
