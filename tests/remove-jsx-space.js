@@ -1,28 +1,30 @@
-require('../assert')('\
+const assert = require('../assert')(__filename);
+
+assert('\
 html`<div>foo</div> `\n\
 ', '\
 html`<div>foo</div>`;\n\
 ');
 
-require('../assert')('\
+assert('\
 html` <div>foo</div>`\n\
 ', '\
 html`<div>foo</div>`;\n\
 ');
 
-require('../assert')('\
+assert('\
 html` <div>foo</div> `\n\
 ', '\
 html`<div>foo</div>`;\n\
 ');
 
-require('../assert')('\
+assert('\
 html`<div> </div>`\n\
 ', '\
 html`<div> </div>`;\n\
 ');
 
-require('../assert')(
+assert(
   '\
 html`<div data-foo="foo" data-bar="bar"> </div>`\n\
 ',
@@ -34,7 +36,7 @@ html`\n\
 ',
 );
 
-require('../assert')(
+assert(
   '\
 html`<div><span data-foo="foo" data-bar="bar"/ > <span data-foo="foo" data-bar="bar"/ ></div>`\n\
 ',

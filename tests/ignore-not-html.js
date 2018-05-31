@@ -1,16 +1,18 @@
-require('../assert')('\
+const assert = require('../assert')(__filename);
+
+assert('\
 html``\n\
 ', '\
 html``;\n\
 ');
 
-require('../assert')('\
+assert('\
 html`text <>`\n\
 ', '\
 html`text <>`;\n\
 ');
 
-require('../assert')('\
+assert('\
 html`<div`\n\
 ', '\
 html`<div`;\n\

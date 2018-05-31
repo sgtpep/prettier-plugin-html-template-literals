@@ -1,22 +1,24 @@
-require('../assert')('\
+const assert = require('../assert')(__filename);
+
+assert('\
 html`<div/ >`\n\
 ', '\
 html`<div />`;\n\
 ');
 
-require('../assert')('\
+assert('\
 `<div/ >`\n\
 ', '\
 `<div/ >`;\n\
 ');
 
-require('../assert')('\
+assert('\
 foo`<div/ >`\n\
 ', '\
 foo`<div />`;\n\
 ');
 
-require('../assert')('\
+assert('\
 foo()`<div/ >`\n\
 ', '\
 foo()`<div />`;\n\

@@ -1,4 +1,6 @@
-require('../assert')(
+const assert = require('../assert')(__filename);
+
+assert(
   '\
 html`<div>${items.map(item => html`<span/ >`)}</div >`\n\
 ',
@@ -7,7 +9,7 @@ html`<div>${items.map(item => html`<span />`)}</div>`;\n\
 ',
 );
 
-require('../assert')(
+assert(
   '\
 html`<div data-foo="foo" data-bar="bar" data-baz="baz">${items.map(item => html`<span/ >`)}</div >`\n\
 ',
@@ -20,7 +22,7 @@ html`\n\
 ',
 );
 
-require('../assert')(
+assert(
   '\
 html`<div>${items.map(item => html`<span data-foo="foo" data-bar="bar" data-baz="baz"/ >`)}</div >`\n\
 ',

@@ -1,4 +1,6 @@
-//require('../assert')(
+//const assert = require('../assert')(__filename);
+//
+//assert(
 //  '\
 //html`<style>.foo{color:red}</style >`\n\
 //',
@@ -6,8 +8,8 @@
 //html``;\n\
 //'
 //);
-
-//require('../assert')(
+//
+//assert(
 //  "\
 //html`<style>.foo{color:${'red'}}</style >`\n\
 //",
@@ -15,8 +17,8 @@
 //html``;\n\
 //'
 //);
-
-//require('../assert')(
+//
+//assert(
 //  '\
 //html`<style>.foo{color:red}\n\
 //.bar{\n\

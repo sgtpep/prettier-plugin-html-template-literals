@@ -10,12 +10,16 @@ process.on('exit', code => {
   }
 });
 
-module.exports = function(source, expected) {
-  const formatted = prettier.format(source, { ...options, parser: 'babylon' });
-  if (formatted !== expected) {
-    error = true;
-    // eslint-disable-next-line no-console
-    console.error(`Failed ${path.basename(module.parent.filename)}
+module.exports = function(testPath) {
+  return function(source, expected) {
+    const formatted = prettier.format(source, {
+      ...options,
+      parser: 'babylon',
+    });
+    if (formatted !== expected) {
+      error = true;
+      // eslint-disable-next-line no-console
+      console.error(`Failed ${path.basename(testPath)}
 
 Source:
 ${source}
@@ -23,5 +27,6 @@ Formatted:
 ${formatted}
 Expected:
 ${expected}`);
-  }
+    }
+  };
 };

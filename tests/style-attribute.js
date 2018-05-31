@@ -1,4 +1,6 @@
-require('../assert')(
+const assert = require('../assert')(__filename);
+
+assert(
   "\
 html`<div style=${{ foo: 'bar' }}>foo</div >`\n\
 ",
@@ -7,7 +9,7 @@ html`<div style=${{ foo: 'bar' }}>foo</div>`;\n\
 ",
 );
 
-require('../assert')(
+assert(
   "\
 html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux' }}>foo</div >`\n\
 ",
@@ -20,7 +22,7 @@ html`\n\
 ",
 );
 
-require('../assert')(
+assert(
   "\
 html`<div style=${{ foo: 'foo', bar: 'bar', baz: 'baz', qux: 'qux', foo: 'foo', bar: 'bar' }}>foo</div >`\n\
 ",
