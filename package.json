@@ -5,6 +5,7 @@
   },
   "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html and maybe others.",
   "devDependencies": {
+    "eslint": "4.x",
     "prettier": "*"
   },
   "license": "ISC",
@@ -15,7 +16,8 @@
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals.git",
   "scripts": {
     "format": "prettier --write './**/*.{css,js,json,md}'",
-    "test": "prettier -l './**/*.{css,js,json,md}' && node ./test.js"
+    "lint": "eslint --fix './**/*.js'",
+    "test": "prettier -l './**/*.{css,js,json,md}' && eslint './**/*.js' && node ./test.js"
   },
   "version": "1.0.0"
 }
