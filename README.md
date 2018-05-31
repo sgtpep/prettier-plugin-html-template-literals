@@ -4,7 +4,7 @@
 [![npm Package](https://img.shields.io/npm/v/prettier-plugin-html-template-literals.svg?colorB=44cc11)](https://www.npmjs.com/package/prettier-plugin-html-template-literals)
 [![License](https://img.shields.io/badge/license-ISC-brightgreen.svg)](https://opensource.org/licenses/ISC)
 
-Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), and maybe others. For example:
+Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), [choo](https://choo.io/), [hyperx](https://github.com/choojs/hyperx), [nanohtml](https://github.com/choojs/nanohtml), [snabby](https://github.com/jamen/snabby), [yo-yo](https://github.com/maxogden/yo-yo), and others. For example:
 
 Input:
 
@@ -30,7 +30,7 @@ html`
 
 ## Why
 
-Declaring HTML templates using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) is a nice alternative to [JSX](https://reactjs.org/docs/introducing-jsx.html). It relies only on standard ES6+ and doesn't require a transpiling/preprocessing toolset, at least during development. [hyperHTML](https://viperhtml.js.org/) and [lit-html](https://polymer.github.io/lit-html/) are nice lightweight libraries built on this idea and, more than that, provide the [React](https://reactjs.org/)-like experience without the bloat of Virtual DOM.
+Declaring HTML templates using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) is a nice alternative to [JSX](https://reactjs.org/docs/introducing-jsx.html). It relies only on standard ES6+ and doesn't require a transpiling/preprocessing toolset, at least during development. [hyperHTML](https://viperhtml.js.org/) and [lit-html](https://polymer.github.io/lit-html/) are nice lightweight libraries built on this idea and, more than that, provide the [React](https://reactjs.org/)-like experience without the bloat of Virtual DOM. There are also Virtual DOM-based libraries that consume HTML from tagged template literals: [choo](https://choo.io/), [hyperx](https://github.com/choojs/hyperx), [nanohtml](https://github.com/choojs/nanohtml), [snabby](https://github.com/jamen/snabby), [yo-yo](https://github.com/maxogden/yo-yo), and others.
 
 ## Warning
 

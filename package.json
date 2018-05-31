@@ -3,19 +3,24 @@
   "bin": {
     "prettier": "./cli.js"
   },
-  "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html, and maybe others.",
+  "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html, choo, hyperx, nanohtml, snabby, yo-yo, and others.",
   "devDependencies": {
     "eslint": "4.x",
     "prettier": "*"
   },
   "keywords": [
+    "choo",
     "html",
     "hyperhtml",
+    "hyperx",
     "lit-html",
+    "nanohtml",
     "prettier",
     "prettier-plugin",
+    "snabby",
     "tagged-template-literal",
-    "template-literal"
+    "template-literal",
+    "yo-yo"
   ],
   "license": "ISC",
   "name": "prettier-plugin-html-template-literals",
