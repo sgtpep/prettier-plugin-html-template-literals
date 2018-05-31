@@ -10,9 +10,13 @@ module.exports = function(request) {
             /\bswitch\s*\(node\.type\)\s*{\n\s*case\s*['"]TemplateLiteral['"]:/,
             `
             $&
-            let result = (${embed})(...arguments);
-            if (result !== undefined) {
-              return result;
+            try {
+              let result = (${embed})(...arguments);
+              if (result !== undefined) {
+                return result;
+              }
+            } catch (error) {
+              console.error(error.message);
             }
           `
           )
