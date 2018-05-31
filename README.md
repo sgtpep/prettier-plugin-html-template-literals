@@ -1,6 +1,7 @@
 # prettier-plugin-html-template-literals
 
 [![Build Status](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals.svg?branch=master)](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals)
+[![License](https://img.shields.io/github/license/sgtpep/prettier-plugin-html-template-literals.svg)](https://opensource.org/licenses/ISC)
 
 Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), and maybe others. For example:
 
