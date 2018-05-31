@@ -26,6 +26,10 @@ html`
 `;
 ```
 
+## Why
+
+Declaring HTML templates using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) is a nice alternative to [JSX](https://reactjs.org/docs/introducing-jsx.html). It relys only on standard ES6+ and doesn't require transpiling/preprocessing toolset, at least during development. [hyperHTML](https://viperhtml.js.org/) and [lit-html](https://polymer.github.io/lit-html/) are nice lightweight libraries built on this idea and, more than that, provide [React](https://reactjs.org/)-like experience without the bloat of Virtual DOM.
+
 ## Usage
 
 Install `prettier` and `prettier-plugin-html-template-literals` using `yarn`:
