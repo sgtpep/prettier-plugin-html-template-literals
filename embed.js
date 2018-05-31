@@ -9,7 +9,8 @@ module.exports = function(path, print, textToDoc) {
             index ? `{'@prettier-placeholder-${index - 1}-id'}` : ''
           }${quasis.replace(/{/g, '@prettier-curly-brace')}`,
         ''
-      );
+      )
+      .trim();
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
       const log = function(value) {
         // eslint-disable-next-line no-console
@@ -20,6 +21,15 @@ module.exports = function(path, print, textToDoc) {
         : [];
       const processDoc = function(doc) {
         if (doc) {
+          //          if (
+          //            doc.contents &&
+          //            doc.contents.parts &&
+          //            doc.contents.parts[1] &&
+          //            doc.contents.parts[1].parts &&
+          //            !doc.contents.parts[1].parts.length
+          //          ) {
+          //            doc.contents = '';
+          //          }
           if (doc.expandedStates) {
             doc.expandedStates = doc.expandedStates.map(doc =>
               mapDoc(doc, doc => processDoc(doc))
@@ -44,6 +54,9 @@ module.exports = function(path, print, textToDoc) {
               }
             } else {
               for (const [index, part] of doc.parts.entries()) {
+                if (part === '{" "}' || part === "{' '}") {
+                  //                  doc.parts[index] = '';
+                }
                 if (part.includes) {
                   if (part.includes('@prettier-placeholder-')) {
                     const parts = [];
