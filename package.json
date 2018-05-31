@@ -14,8 +14,8 @@
   },
   "repository": "https://github.com/sgtpep/prettier-plugin-html-template-literals.git",
   "scripts": {
-    "prettier": "prettier --write './**/*.{css,js,json,md}'",
-    "test": "node ./test.js"
+    "format": "prettier --write './**/*.{css,js,json,md}'",
+    "test": "prettier -l './**/*.{css,js,json,md}' && node ./test.js"
   },
   "version": "1.0.0"
 }
