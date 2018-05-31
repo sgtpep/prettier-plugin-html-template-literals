@@ -50,7 +50,7 @@ echo 'html`<div><span>foo</span></div>`' | ./node_modules/.bin/prettier --stdin-
 
 ### Usage from API
 
-Unfortunately this plugin is actually ignored by the `prettier` API at the moment. Instead of `require('prettier').format()` you need to use the wrapper module with the same API:
+Unfortunately this plugin is actually ignored by the API exposed with the `prettier` module at the moment. Instead of `require('prettier').format()` you need to use the wrapper module with the same API:
 
 ```javascript
 require('prettier-plugin-html-template-literals/prettier').format(
