@@ -8,6 +8,15 @@
     "eslint": "4.x",
     "prettier": "*"
   },
+  "keywords": [
+    "html",
+    "hyperHTML",
+    "lit-html",
+    "prettier",
+    "prettier-plugin",
+    "tagged-template-literal",
+    "template-literal"
+  ],
   "license": "ISC",
   "name": "prettier-plugin-html-template-literals",
   "peerDependencies": {
