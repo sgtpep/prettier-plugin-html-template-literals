@@ -24,7 +24,8 @@ module.exports = function(path, print, textToDoc) {
             doc.expandedStates = doc.expandedStates.map(doc =>
               mapDoc(doc, doc => processDoc(doc))
             );
-          } else if (doc.parts) {
+          }
+          if (doc.parts) {
             if (
               doc.parts[0] === '{' &&
               doc.parts[doc.parts.length - 1] === '}' &&
@@ -60,7 +61,8 @@ module.exports = function(path, print, textToDoc) {
                     }
                     parts.push(part.slice(offset));
                     doc.parts.splice(index, 1, ...parts);
-                  } else if (part.includes('@prettier-curly-brace')) {
+                  }
+                  if (part.includes('@prettier-curly-brace')) {
                     doc.parts[index] = part.replace(
                       /@prettier-curly-brace/g,
                       '{'
