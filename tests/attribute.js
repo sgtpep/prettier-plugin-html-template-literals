@@ -1,6 +1,6 @@
 require('../assert')(
   '\
-html`<div class="foo">foo</div>`;\n\
+html`<div class="foo">foo</div >`;\n\
 ',
   '\
 html`<div class="foo">foo</div>`;\n\
@@ -9,7 +9,7 @@ html`<div class="foo">foo</div>`;\n\
 
 require('../assert')(
   "\
-html`<div class=${'foo'}>foo</div>`;\n\
+html`<div class=${'foo'}>foo</div >`;\n\
 ",
   "\
 html`<div class=${'foo'}>foo</div>`;\n\
@@ -18,7 +18,7 @@ html`<div class=${'foo'}>foo</div>`;\n\
 
 require('../assert')(
   '\
-html`<div class="${\'foo\'}">foo</div>`;\n\
+html`<div class="${\'foo\'}">foo</div >`;\n\
 ',
   '\
 html`<div class="${\'foo\'}">foo</div>`;\n\
@@ -27,7 +27,7 @@ html`<div class="${\'foo\'}">foo</div>`;\n\
 
 require('../assert')(
   '\
-html`<div class="foo ${\'bar\'}">foo</div>`;\n\
+html`<div class="foo ${\'bar\'}">foo</div >`;\n\
 ',
   '\
 html`<div class="foo ${\'bar\'}">foo</div>`;\n\
@@ -36,7 +36,7 @@ html`<div class="foo ${\'bar\'}">foo</div>`;\n\
 
 require('../assert')(
   '\
-html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`;\n\
+html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div >`;\n\
 ',
   '\
 html`\n\
