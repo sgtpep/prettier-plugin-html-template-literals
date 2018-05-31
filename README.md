@@ -71,7 +71,8 @@ require('prettier-plugin-html-template-literals/prettier').format(
 
 Because of this plugin relies on the JSX parser it has some limitations. Some of them may be addressed in future if it will be possible to find a workaround.
 
-* Attribute values without quotes are not supported: `<div id=foo>`
-* Contents of <style> elements is ignored and not prettified: `<style>.foo{color:red}</style>`
-* It's impossible to reliably eliminate whitespace between adjacent elements: `<span></span><span></span>`
+* Attribute values without quotes are not supported. Raises an exception: `<div id=foo>`
+* Contents of <style> elements is ignored and not prettified. Style is not formatted: `<style>.foo{color:red}</style>`
+* It's impossible to reliably eliminate whitespace between adjacent elements: May be wrapped on not to multiple lines: `<span></span><span></span>`
 * All empty elements are converted to self-closing (void) ones: `<div />`
+* Whitespace is not preserved within elements sensitive to it like `pre` or `textarea`. Contents will be collapsed to a single space: `<pre>\n</pre>`
