@@ -12,6 +12,7 @@ module.exports = function(path, print, textToDoc) {
       )
       .trim();
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
+      // eslint-disable-next-line no-unused-vars
       const log = function(value) {
         // eslint-disable-next-line no-console
         console.log(JSON.stringify(value, null, 2));
