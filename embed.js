@@ -93,9 +93,8 @@ module.exports = function(path, print, textToDoc) {
         while (!trimmedDoc.parts.includes(';')) {
           trimmedDoc = trimmedDoc.parts[0];
         }
-        trimmedDoc =
-          trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1];
-        return trimmedDoc.contents || trimmedDoc;
+        return trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1]
+          .contents;
       };
       const indentDoc = function(doc) {
         if (
