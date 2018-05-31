@@ -3,7 +3,7 @@
   "bin": {
     "prettier": "./cli.js"
   },
-  "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html and maybe others.",
+  "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html, and maybe others.",
   "devDependencies": {
     "eslint": "4.x",
     "prettier": "*"
