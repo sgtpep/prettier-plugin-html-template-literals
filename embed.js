@@ -1,4 +1,5 @@
 module.exports = function(path, print, textToDoc) {
+  /* global concat:false, indent:false, mapDoc:false, node:false, parent:false, softline:false, willBreak:false */
   if (parent.type === 'TaggedTemplateExpression') {
     const text = node.quasis
       .map(quasis => quasis.value.raw)
@@ -10,7 +11,10 @@ module.exports = function(path, print, textToDoc) {
         ''
       );
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
-      function processDoc(doc) {
+      const expressions = node.expressions
+        ? path.map(print, 'expressions')
+        : [];
+      const processDoc = function(doc) {
         if (doc) {
           if (doc.expandedStates) {
             doc.expandedStates = doc.expandedStates.map(doc =>
@@ -19,14 +23,17 @@ module.exports = function(path, print, textToDoc) {
           } else if (doc.parts) {
             if (
               doc.parts[0] === '{' &&
-              doc.parts[doc.parts.length - 1] === '}'
+              doc.parts[doc.parts.length - 1] === '}' &&
+              doc.parts[1] &&
+              doc.parts[1].contents &&
+              doc.parts[1].contents.parts &&
+              doc.parts[1].contents.parts[1] &&
+              doc.parts[1].contents.parts[1].parts &&
+              doc.parts[1].contents.parts[1].parts[0]
             ) {
-              let match;
-              try {
-                match = doc.parts[1].contents.parts[1].parts[0].match(
-                  /^['"]@prettier-placeholder-(\d+)-id['"]$/
-                );
-              } catch (error) {}
+              const match = doc.parts[1].contents.parts[1].parts[0].match(
+                /^['"]@prettier-placeholder-(\d+)-id['"]$/
+              );
               if (match) {
                 return concat(['${', expressions[match[1]], '}']);
               }
@@ -61,37 +68,38 @@ module.exports = function(path, print, textToDoc) {
           }
         }
         return doc;
-      }
-      function trimDoc(doc) {
+      };
+      const trimDoc = function(doc) {
         let trimmedDoc = doc;
         while (!trimmedDoc.parts.includes(';')) {
           trimmedDoc = trimmedDoc.parts[0];
         }
         return trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1]
           .contents;
-      }
-      function indentDoc(doc) {
-        let breakableDoc;
-        try {
-          breakableDoc = doc.parts[0].parts[0].expandedStates.find(
+      };
+      const indentDoc = function(doc) {
+        if (
+          doc.parts &&
+          doc.parts[0] &&
+          doc.parts[0].parts &&
+          doc.parts[0].parts[0] &&
+          doc.parts[0].parts[0].expandedStates
+        ) {
+          const breakableDoc = doc.parts[0].parts[0].expandedStates.find(
             doc => doc.break
           );
-        } catch (error) {}
-        if (breakableDoc) {
-          breakableDoc.contents = concat([
-            indent(concat([softline, breakableDoc.contents])),
-            softline,
-          ]);
-          return doc;
-        } else {
-          return willBreak(doc)
-            ? concat([indent(concat([softline, doc])), softline])
-            : doc;
+          if (breakableDoc) {
+            breakableDoc.contents = concat([
+              indent(concat([softline, breakableDoc.contents])),
+              softline,
+            ]);
+            return doc;
+          }
         }
-      }
-      const expressions = node.expressions
-        ? path.map(print, 'expressions')
-        : [];
+        return willBreak(doc)
+          ? concat([indent(concat([softline, doc])), softline])
+          : doc;
+      };
       const doc = indentDoc(
         trimDoc(
           mapDoc(textToDoc(`<>${text}</>`, { parser: 'babylon' }), doc =>

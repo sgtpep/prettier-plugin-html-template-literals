@@ -23,6 +23,7 @@ function testCLI() {
     }
   );
   if (stderr) {
+    // eslint-disable-next-line no-console
     console.error(stderr);
   }
   assert.equal(
