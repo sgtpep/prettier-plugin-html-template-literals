@@ -19,5 +19,5 @@
     "lint": "eslint --fix './**/*.js'",
     "test": "prettier -l './**/*.{css,js,json,md}' && eslint './**/*.js' && node ./test.js"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
