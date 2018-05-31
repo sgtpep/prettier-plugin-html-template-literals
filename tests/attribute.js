@@ -1,6 +1,6 @@
-const assert = require('../assert')(__filename);
+const compare = require('../compare')(__filename);
 
-assert(
+compare(
   '\
 html`<div class="foo">foo</div >`\n\
 ',
@@ -9,7 +9,7 @@ html`<div class="foo">foo</div>`;\n\
 ',
 );
 
-assert(
+compare(
   "\
 html`<div class=${'foo'}>foo</div >`\n\
 ",
@@ -18,7 +18,7 @@ html`<div class=${'foo'}>foo</div>`;\n\
 ",
 );
 
-assert(
+compare(
   '\
 html`<div class="${\'foo\'}">foo</div >`\n\
 ',
@@ -27,7 +27,7 @@ html`<div class="${\'foo\'}">foo</div>`;\n\
 ',
 );
 
-assert(
+compare(
   '\
 html`<div class="foo ${\'bar\'}">foo</div >`\n\
 ',
@@ -36,7 +36,7 @@ html`<div class="foo ${\'bar\'}">foo</div>`;\n\
 ',
 );
 
-assert(
+compare(
   '\
 html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div >`\n\
 ',

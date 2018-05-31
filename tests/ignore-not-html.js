@@ -1,18 +1,18 @@
-const assert = require('../assert')(__filename);
+const compare = require('../compare')(__filename);
 
-assert('\
+compare('\
 html``\n\
 ', '\
 html``;\n\
 ');
 
-assert('\
+compare('\
 html`text <>`\n\
 ', '\
 html`text <>`;\n\
 ');
 
-assert('\
+compare('\
 html`<div`\n\
 ', '\
 html`<div`;\n\

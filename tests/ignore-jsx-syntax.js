@@ -1,6 +1,6 @@
-const assert = require('../assert')(__filename);
+const compare = require('../compare')(__filename);
 
-assert(
+compare(
   '\
 html`<div class="foo">foo {1+1} {1</div >`\n\
 ',

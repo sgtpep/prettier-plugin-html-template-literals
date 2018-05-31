@@ -10,7 +10,7 @@ process.on('exit', code => {
   }
 });
 
-module.exports = function(testPath) {
+module.exports = function compare(testPath) {
   return function(source, expected) {
     const formatted = prettier.format(source, {
       ...options,

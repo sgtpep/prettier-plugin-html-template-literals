@@ -1,6 +1,6 @@
-const assert = require('../assert')(__filename);
+const compare = require('../compare')(__filename);
 
-assert('\
+compare('\
 html`<div/ ><span/ >`\n\
 ', '\
 html`\n\

@@ -1,6 +1,6 @@
-const assert = require('../assert')(__filename);
+const compare = require('../compare')(__filename);
 
-assert(
+compare(
   '\
 html`<div>${items.map(item => html`<span/ >`)}</div >`\n\
 ',
@@ -9,7 +9,7 @@ html`<div>${items.map(item => html`<span />`)}</div>`;\n\
 ',
 );
 
-assert(
+compare(
   '\
 html`<div data-foo="foo" data-bar="bar" data-baz="baz">${items.map(item => html`<span/ >`)}</div >`\n\
 ',
@@ -22,7 +22,7 @@ html`\n\
 ',
 );
 
-assert(
+compare(
   '\
 html`<div>${items.map(item => html`<span data-foo="foo" data-bar="bar" data-baz="baz"/ >`)}</div >`\n\
 ',

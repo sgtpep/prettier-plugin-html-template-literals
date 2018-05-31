@@ -1,6 +1,6 @@
-//const assert = require('../assert')(__filename);
+//const compare = require('../compare')(__filename);
 //
-//assert(
+//compare(
 //  '\
 //html`<style>.foo{color:red}</style >`\n\
 //',
@@ -9,7 +9,7 @@
 //'
 //);
 //
-//assert(
+//compare(
 //  "\
 //html`<style>.foo{color:${'red'}}</style >`\n\
 //",
@@ -18,7 +18,7 @@
 //'
 //);
 //
-//assert(
+//compare(
 //  '\
 //html`<style>.foo{color:red}\n\
 //.bar{\n\
