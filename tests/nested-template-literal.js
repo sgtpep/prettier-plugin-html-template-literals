@@ -30,7 +30,7 @@ html`<div>${items.map(item => html`<span data-foo="foo" data-bar="bar" data-baz=
 html`\n\
   <div>\n\
     ${items.map(\n\
-      item => html`<span data-foo="foo" data-bar="bar" data-baz="baz" />`\n\
+      item => html`<span data-foo="foo" data-bar="bar" data-baz="baz" />`,\n\
     )}\n\
   </div>\n\
 `;\n\
