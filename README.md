@@ -28,7 +28,11 @@ html`
 
 ## Why
 
-Declaring HTML templates using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) is a nice alternative to [JSX](https://reactjs.org/docs/introducing-jsx.html). It relys only on standard ES6+ and doesn't require transpiling/preprocessing toolset, at least during development. [hyperHTML](https://viperhtml.js.org/) and [lit-html](https://polymer.github.io/lit-html/) are nice lightweight libraries built on this idea and, more than that, provide [React](https://reactjs.org/)-like experience without the bloat of Virtual DOM.
+Declaring HTML templates using [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) is a nice alternative to [JSX](https://reactjs.org/docs/introducing-jsx.html). It relys only on standard ES6+ and doesn't require a transpiling/preprocessing toolset, at least during development. [hyperHTML](https://viperhtml.js.org/) and [lit-html](https://polymer.github.io/lit-html/) are nice lightweight libraries built on this idea and, more than that, provide [React](https://reactjs.org/)-like experience without the bloat of Virtual DOM.
+
+## Warning
+
+As HTML tagged template literals get more attention no doubts Prettier will support them. You can track an [open issue](https://github.com/prettier/prettier/issues/3548) for this request. The problem is that the HTML parser within Prettier is not stable yet, and they haven't decided which tags should identify HTML templates. This plugin provides a temporary 'hacky' solution until it will be implemented within Prettier. It uses Prettier's JSX parser and formats any tagged template literal (but not regualar template literal) if it contains `</...>` or `<.../>`. It uses some dirty tricks under the hood, so be warned and report issues/PR.
 
 ## Usage
 
