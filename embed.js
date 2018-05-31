@@ -21,15 +21,15 @@ module.exports = function(path, print, textToDoc) {
         : [];
       const processDoc = function(doc) {
         if (doc) {
-          //          if (
-          //            doc.contents &&
-          //            doc.contents.parts &&
-          //            doc.contents.parts[1] &&
-          //            doc.contents.parts[1].parts &&
-          //            !doc.contents.parts[1].parts.length
-          //          ) {
-          //            doc.contents = '';
-          //          }
+          if (
+            doc.contents &&
+            doc.contents.parts &&
+            doc.contents.parts[1] &&
+            doc.contents.parts[1].parts &&
+            !doc.contents.parts[1].parts.filter(Boolean).length
+          ) {
+            doc.contents = '';
+          }
           if (doc.expandedStates) {
             doc.expandedStates = doc.expandedStates.map(doc =>
               mapDoc(doc, doc => processDoc(doc))
@@ -55,7 +55,7 @@ module.exports = function(path, print, textToDoc) {
             } else {
               for (const [index, part] of doc.parts.entries()) {
                 if (part === '{" "}' || part === "{' '}") {
-                  //                  doc.parts[index] = '';
+                  doc.parts[index] = '';
                 }
                 if (part.includes) {
                   if (part.includes('@prettier-placeholder-')) {
@@ -93,8 +93,9 @@ module.exports = function(path, print, textToDoc) {
         while (!trimmedDoc.parts.includes(';')) {
           trimmedDoc = trimmedDoc.parts[0];
         }
-        return trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1]
-          .contents;
+        trimmedDoc =
+          trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1];
+        return trimmedDoc.contents || trimmedDoc;
       };
       const indentDoc = function(doc) {
         if (
