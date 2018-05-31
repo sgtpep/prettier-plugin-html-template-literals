@@ -11,6 +11,10 @@ module.exports = function(path, print, textToDoc) {
         ''
       );
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
+      const log = function(value) {
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(value, null, 2));
+      };
       const expressions = node.expressions
         ? path.map(print, 'expressions')
         : [];
