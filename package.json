@@ -1,5 +1,5 @@
 {
-  "author": "Danil Semelenov <mail@danil.mobi>",
+  "author": "Danil Semelenov",
   "bin": {
     "prettier": "./cli.js"
   },
