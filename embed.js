@@ -10,7 +10,7 @@ module.exports = function(path, print, textToDoc) {
             }${quasis.replace(/{/g, '@prettier-curly-brace')}`,
           ''
         );
-      if (/<\/|\/>/.test(text)) {
+      if (/<\s*\/|\/\s*>/.test(text)) {
         function processDoc(doc) {
           if (doc) {
             if (doc.expandedStates) {
