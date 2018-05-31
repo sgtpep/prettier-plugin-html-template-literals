@@ -53,35 +53,34 @@ module.exports = function(path, print, textToDoc) {
               if (match) {
                 return concat(['${', expressions[match[1]], '}']);
               }
-            } else {
-              for (const [index, part] of doc.parts.entries()) {
-                if (part === '{" "}' || part === "{' '}") {
-                  doc.parts[index] = '';
-                }
-                if (part.includes) {
-                  if (part.includes('@prettier-placeholder-')) {
-                    const parts = [];
-                    const regExp = /{['"]@prettier-placeholder-(\d+)-id['"]}/g;
-                    let match;
-                    let offset = 0;
-                    while ((match = regExp.exec(part))) {
-                      parts.push(
-                        part.slice(offset, match.index),
-                        '${',
-                        expressions[match[1]],
-                        '}'
-                      );
-                      offset = match.index + match[0].length;
-                    }
-                    parts.push(part.slice(offset));
-                    doc.parts.splice(index, 1, ...parts);
-                  }
-                  if (part.includes('@prettier-curly-brace')) {
-                    doc.parts[index] = part.replace(
-                      /@prettier-curly-brace/g,
-                      '{'
+            }
+            for (const [index, part] of doc.parts.entries()) {
+              if (part === '{" "}' || part === "{' '}") {
+                doc.parts[index] = '';
+              }
+              if (part.includes) {
+                if (part.includes('@prettier-placeholder-')) {
+                  const parts = [];
+                  const regExp = /{['"]@prettier-placeholder-(\d+)-id['"]}/g;
+                  let match;
+                  let offset = 0;
+                  while ((match = regExp.exec(part))) {
+                    parts.push(
+                      part.slice(offset, match.index),
+                      '${',
+                      expressions[match[1]],
+                      '}'
                     );
+                    offset = match.index + match[0].length;
                   }
+                  parts.push(part.slice(offset));
+                  doc.parts.splice(index, 1, ...parts);
+                }
+                if (part.includes('@prettier-curly-brace')) {
+                  doc.parts[index] = part.replace(
+                    /@prettier-curly-brace/g,
+                    '{'
+                  );
                 }
               }
             }
