@@ -65,7 +65,7 @@ Unfortunately, this plugin is actually ignored by the API exposed with the `pret
 ```javascript
 require('prettier-plugin-html-template-literals/prettier').format(
   'html`<div><span>foo</span></div>`',
-  { parser: 'babylon' }
+  { parser: 'babylon' },
 );
 ```
 

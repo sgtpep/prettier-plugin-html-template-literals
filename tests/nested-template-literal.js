@@ -4,7 +4,7 @@ html`<div>${items.map(item => html`<span/ >`)}</div >`\n\
 ',
   '\
 html`<div>${items.map(item => html`<span />`)}</div>`;\n\
-'
+',
 );
 
 require('../assert')(
@@ -17,7 +17,7 @@ html`\n\
     ${items.map(item => html`<span />`)}\n\
   </div>\n\
 `;\n\
-'
+',
 );
 
 require('../assert')(
@@ -32,5 +32,5 @@ html`\n\
     )}\n\
   </div>\n\
 `;\n\
-'
+',
 );

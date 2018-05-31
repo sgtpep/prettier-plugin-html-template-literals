@@ -18,7 +18,7 @@ module.exports = function(request) {
             } catch (error) {
               console.error(error.message);
             }
-          `
+          `,
           )
         : content;
     return _compile.call(this, patchedContent, path);

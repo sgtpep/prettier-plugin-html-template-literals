@@ -8,7 +8,7 @@ module.exports = function(path, print, textToDoc) {
           `${text}${
             index ? `{'@prettier-placeholder-${index - 1}-id'}` : ''
           }${quasis.replace(/{/g, '@prettier-curly-brace')}`,
-        ''
+        '',
       )
       .trim();
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
@@ -33,7 +33,7 @@ module.exports = function(path, print, textToDoc) {
           }
           if (doc.expandedStates) {
             doc.expandedStates = doc.expandedStates.map(doc =>
-              mapDoc(doc, doc => processDoc(doc))
+              mapDoc(doc, doc => processDoc(doc)),
             );
           }
           if (doc.parts) {
@@ -48,7 +48,7 @@ module.exports = function(path, print, textToDoc) {
               doc.parts[1].contents.parts[1].parts[0]
             ) {
               const match = doc.parts[1].contents.parts[1].parts[0].match(
-                /^['"]@prettier-placeholder-(\d+)-id['"]$/
+                /^['"]@prettier-placeholder-(\d+)-id['"]$/,
               );
               if (match) {
                 return concat(['${', expressions[match[1]], '}']);
@@ -69,7 +69,7 @@ module.exports = function(path, print, textToDoc) {
                       part.slice(offset, match.index),
                       '${',
                       expressions[match[1]],
-                      '}'
+                      '}',
                     );
                     offset = match.index + match[0].length;
                   }
@@ -79,7 +79,7 @@ module.exports = function(path, print, textToDoc) {
                 if (part.includes('@prettier-curly-brace')) {
                   doc.parts[index] = part.replace(
                     /@prettier-curly-brace/g,
-                    '{'
+                    '{',
                   );
                 }
               }
@@ -105,7 +105,7 @@ module.exports = function(path, print, textToDoc) {
           doc.parts[0].parts[0].expandedStates
         ) {
           const breakableDoc = doc.parts[0].parts[0].expandedStates.find(
-            doc => doc.break
+            doc => doc.break,
           );
           if (breakableDoc) {
             breakableDoc.contents = concat([
@@ -121,7 +121,7 @@ module.exports = function(path, print, textToDoc) {
       };
       const doc = textToDoc(`<>${text}</>`, { parser: 'babylon' });
       const processedDoc = indentDoc(
-        trimDoc(mapDoc(doc, doc => processDoc(doc)))
+        trimDoc(mapDoc(doc, doc => processDoc(doc))),
       );
       return concat(['`', processedDoc, '`']);
     }

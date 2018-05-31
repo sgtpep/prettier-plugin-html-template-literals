@@ -20,7 +20,7 @@ function testCLI() {
       encoding: 'utf8',
       input:
         'html`<div id="foo" class="bar" data-foo="foo" data-bar="bar" data-baz="baz" data-qux="qux">foo</div>`',
-    }
+    },
   );
   if (stderr) {
     // eslint-disable-next-line no-console
@@ -41,7 +41,7 @@ html`\n\
     foo\n\
   </div>\n\
 `;\n\
-'
+',
   );
 }
 

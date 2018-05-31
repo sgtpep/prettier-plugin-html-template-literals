@@ -4,7 +4,7 @@ html`<div class="foo">foo</div >`\n\
 ',
   '\
 html`<div class="foo">foo</div>`;\n\
-'
+',
 );
 
 require('../assert')(
@@ -13,7 +13,7 @@ html`<div class=${'foo'}>foo</div >`\n\
 ",
   "\
 html`<div class=${'foo'}>foo</div>`;\n\
-"
+",
 );
 
 require('../assert')(
@@ -22,7 +22,7 @@ html`<div class="${\'foo\'}">foo</div >`\n\
 ',
   '\
 html`<div class="${\'foo\'}">foo</div>`;\n\
-'
+',
 );
 
 require('../assert')(
@@ -31,7 +31,7 @@ html`<div class="foo ${\'bar\'}">foo</div >`\n\
 ',
   '\
 html`<div class="foo ${\'bar\'}">foo</div>`;\n\
-'
+',
 );
 
 require('../assert')(
@@ -51,5 +51,5 @@ html`\n\
     foo\n\
   </div>\n\
 `;\n\
-'
+',
 );

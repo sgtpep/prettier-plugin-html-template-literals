@@ -31,7 +31,7 @@ html`\n\
   <div data-foo="foo" data-bar="bar">\n\
   </div>\n\
 `;\n\
-'
+',
 );
 
 require('../assert')(
@@ -45,5 +45,5 @@ html`\n\
     <span data-foo="foo" data-bar="bar" />\n\
   </div>\n\
 `;\n\
-'
+',
 );

@@ -4,7 +4,7 @@ html`<div style=${{ foo: 'bar' }}>foo</div >`\n\
 ",
   "\
 html`<div style=${{ foo: 'bar' }}>foo</div>`;\n\
-"
+",
 );
 
 require('../assert')(
@@ -17,7 +17,7 @@ html`\n\
     foo\n\
   </div>\n\
 `;\n\
-"
+",
 );
 
 require('../assert')(
@@ -39,5 +39,5 @@ html`\n\
     foo\n\
   </div>\n\
 `;\n\
-"
+",
 );
