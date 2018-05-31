@@ -106,14 +106,11 @@ module.exports = function(path, print, textToDoc) {
           ? concat([indent(concat([softline, doc])), softline])
           : doc;
       };
-      const doc = indentDoc(
-        trimDoc(
-          mapDoc(textToDoc(`<>${text}</>`, { parser: 'babylon' }), doc =>
-            processDoc(doc)
-          )
-        )
+      const doc = textToDoc(`<>${text}</>`, { parser: 'babylon' });
+      const processedDoc = indentDoc(
+        trimDoc(mapDoc(doc, doc => processDoc(doc)))
       );
-      return concat(['`', doc, '`']);
+      return concat(['`', processedDoc, '`']);
     }
   }
 };
