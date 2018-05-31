@@ -58,3 +58,12 @@ require('prettier-plugin-html-template-literals/prettier').format(
   { parser: 'babylon' }
 );
 ```
+
+## Limitations
+
+Because of this plugin relys on the JSX parser it has some limitations. Some of them may be addressed in future if it will be possible to find a workaround.
+
+* Attribute values without quotes are not supported: `<div id=foo>`
+* Contents of <style> elements is ignored and not prettified: `<style>.foo{color:red}</style>`
+* It's impossible to reliably eliminate whitespace between adjacent elements: `<span></span><span></span>`
+* All empty elements are converted to self-closing (void) ones: `<div />`
