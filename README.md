@@ -34,7 +34,7 @@ Declaring HTML templates using [tagged template literals](https://developer.mozi
 
 ## Warning
 
-As HTML tagged template literals get more attention, no doubts Prettier will support them. You can track an [open issue](https://github.com/prettier/prettier/issues/3548) for this request. The problem is that the HTML parser within Prettier is not stable yet, and they haven't decided which tags should identify HTML templates. This plugin provides a temporary 'hacky' solution until it will be implemented within Prettier. It uses Prettier's JSX parser and formats any tagged template literal (but not regular template literal) if it contains `</...>` or `<.../>`. It uses some dirty tricks under the hood, so be warned and report issues/PR.
+As HTML tagged template literals get more attention, no doubts Prettier will support them. You can track an [open issue](https://github.com/prettier/prettier/issues/3548) for this request. The problem is that the HTML parser within Prettier is not stable yet, and they haven't decided which tags should identify HTML templates. Also, at the moment, there is no API in Prettier to provide additional embedded languages from plugins. There is [a feature request](https://github.com/prettier/prettier/issues/4424) for this. This plugin provides a temporary 'hacky' solution until it will be implemented within Prettier. It uses Prettier's JSX parser and formats any tagged template literal (but not regular template literal) if it contains `</...>` or `<.../>`. It uses some dirty tricks under the hood, so be warned and report issues/PR.
 
 ## Usage
 
