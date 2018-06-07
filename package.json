@@ -5,7 +5,7 @@
   },
   "description": "Formats HTML within tagged template literals in Prettier which is useful for hyperHTML, lit-html, choo, hyperx, nanohtml, snabby, yo-yo, and others.",
   "devDependencies": {
-    "eslint": "4.x",
+    "eslint": "^4.19.1",
     "prettier": "*"
   },
   "keywords": [
