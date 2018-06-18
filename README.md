@@ -1,8 +1,6 @@
 # prettier-plugin-html-template-literals
 
-[![Build Status](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals.svg)](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals)
-[![npm Package](https://img.shields.io/npm/v/prettier-plugin-html-template-literals.svg?colorB=44cc11)](https://www.npmjs.com/package/prettier-plugin-html-template-literals)
-[![License](https://img.shields.io/badge/license-ISC-brightgreen.svg)](https://opensource.org/licenses/ISC)
+[![Build Status](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals.svg?branch=master)](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals)
 
 Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), [choo](https://choo.io/), [hyperx](https://github.com/choojs/hyperx), [nanohtml](https://github.com/choojs/nanohtml), [snabby](https://github.com/jamen/snabby), [yo-yo](https://github.com/maxogden/yo-yo), and others. For example:
 
