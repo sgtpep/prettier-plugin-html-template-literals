@@ -3,16 +3,14 @@ const assert = require('assert').strict;
 const path = require('path');
 const { spawnSync } = require('child_process');
 
-function main() {
+const main = () => {
   testCLI();
   testAPI();
-}
+};
 
-function testAPI() {
-  require('./tests');
-}
+const testAPI = () => require('./tests');
 
-function testCLI() {
+const testCLI = () => {
   const { stdout, stderr } = spawnSync(
     path.join(__dirname, 'cli.js'),
     ['--stdin-filepath', 'test.js'],
@@ -43,6 +41,6 @@ html`\n\
 `;\n\
 ',
   );
-}
+};
 
 main();

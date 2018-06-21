@@ -1,4 +1,4 @@
-module.exports = function(path, print, textToDoc) {
+module.exports = (path, print, textToDoc) => {
   /* global concat:false, indent:false, mapDoc:false, node:false, parent:false, softline:false, willBreak:false */
   if (parent.type === 'TaggedTemplateExpression') {
     const text = node.quasis
@@ -12,15 +12,12 @@ module.exports = function(path, print, textToDoc) {
       )
       .trim();
     if (/<\s*\/[^<]+?>|<[^<]+?\/\s*>/.test(text)) {
-      // eslint-disable-next-line no-unused-vars
-      const log = function(value) {
-        // eslint-disable-next-line no-console
-        console.log(JSON.stringify(value, null, 2));
-      };
+      // eslint-disable-next-line no-console, no-unused-vars
+      const log = value => console.log(JSON.stringify(value, null, 2));
       const expressions = node.expressions
         ? path.map(print, 'expressions')
         : [];
-      const processDoc = function(doc) {
+      const processDoc = doc => {
         if (doc) {
           if (
             doc.contents &&
@@ -88,7 +85,7 @@ module.exports = function(path, print, textToDoc) {
         }
         return doc;
       };
-      const trimDoc = function(doc) {
+      const trimDoc = doc => {
         let trimmedDoc = doc;
         while (!trimmedDoc.parts.includes(';')) {
           trimmedDoc = trimmedDoc.parts[0];
@@ -96,7 +93,7 @@ module.exports = function(path, print, textToDoc) {
         return trimmedDoc.parts[0].parts[0].contents.parts[1].contents.parts[1]
           .contents;
       };
-      const indentDoc = function(doc) {
+      const indentDoc = doc => {
         if (
           doc.parts &&
           doc.parts[0] &&
