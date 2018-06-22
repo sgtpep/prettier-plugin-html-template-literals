@@ -22,7 +22,7 @@
     "template-literal",
     "yo-yo"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "name": "prettier-plugin-html-template-literals",
   "peerDependencies": {
     "prettier": ">= 1.13.0 < 2"
