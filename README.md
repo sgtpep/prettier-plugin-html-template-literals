@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals.svg?branch=master)](https://travis-ci.com/sgtpep/prettier-plugin-html-template-literals)
 
-Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), [choo](https://choo.io/), [hyperx](https://github.com/choojs/hyperx), [nanohtml](https://github.com/choojs/nanohtml), [snabby](https://github.com/jamen/snabby), [yo-yo](https://github.com/maxogden/yo-yo), and others. For example:
+Formats HTML within [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) in [Prettier](https://prettier.io/) which is useful for [hyperHTML](https://viperhtml.js.org/), [lit-html](https://polymer.github.io/lit-html/), [htm](https://github.com/developit/htm), [choo](https://choo.io/), [hyperx](https://github.com/choojs/hyperx), [nanohtml](https://github.com/choojs/nanohtml), [snabby](https://github.com/jamen/snabby), [yo-yo](https://github.com/maxogden/yo-yo), and others. For example:
 
 Input:
 
